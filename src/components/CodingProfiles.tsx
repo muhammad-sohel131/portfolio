@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 interface Platform {
   name: string
@@ -11,118 +11,101 @@ interface Platform {
   bgColor: string
   stats?: {
     rating?: string
-    problems?: number
+    problems?: string
     followers?: string
-    repos?: number
-    contributions?: number
+    repos?: string
+    contributions?: string
+    connections?: string
+    badges?: string
   }
 }
 
 const CodingProfiles = () => {
-  const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null)
   const [hoveredPlatform, setHoveredPlatform] = useState<string | null>(null)
   
   // Platform data with your actual usernames (update these with your real usernames)
   const platforms: Platform[] = [
     {
       name: 'GitHub',
-      username: 'rezwanulhaque',
-      url: 'https://github.com/rezwanulhaque',
+      username: 'muhammad-sohel131',
+      url: 'https://github.com/muhammad-sohel131',
       icon: 'fab fa-github',
       color: 'from-gray-700 to-gray-900',
       bgColor: 'bg-gray-900',
       stats: {
-        repos: '24+',
-        followers: '45',
-        contributions: '1.2k'
+        repos: '80+',
+        followers: '13+',
+        contributions: '914+'
       }
     },
     {
       name: 'LinkedIn',
-      username: 'rezwanul-haque',
-      url: 'https://linkedin.com/in/rezwanul-haque',
+      username: 'md-sohel131',
+      url: 'https://www.linkedin.com/in/md-sohel131',
       icon: 'fab fa-linkedin',
       color: 'from-blue-600 to-blue-800',
       bgColor: 'bg-blue-700',
       stats: {
         followers: '500+',
-        connections: '450+'
+        connections: '478+'
       }
     },
     {
       name: 'Codeforces',
-      username: 'rezwanul_haque',
-      url: 'https://codeforces.com/profile/rezwanul_haque',
-      icon: 'fab fa-codeforces',
+      username: 'sohelf131',
+      url: 'https://codeforces.com/profile/sohelf131',
+      icon: 'fas fa-code',
       color: 'from-red-500 to-red-700',
       bgColor: 'bg-red-600',
       stats: {
-        rating: '1320',
-        problems: '450+'
+        rating: '407',
+        problems: '50+'
       }
     },
     {
       name: 'CodeChef',
-      username: 'rezwanul_haque',
-      url: 'https://www.codechef.com/users/rezwanul_haque',
+      username: 'mdsohe173',
+      url: 'https://www.codechef.com/users/mdsohe173',
       icon: 'fas fa-code',
       color: 'from-brown-500 to-amber-700',
       bgColor: 'bg-amber-700',
       stats: {
-        rating: '1580',
-        problems: '380+'
+        rating: '825',
+        problems: '90+'
       }
     },
     {
       name: 'HackerRank',
-      username: 'rezwanul_haque',
-      url: 'https://www.hackerrank.com/rezwanul_haque',
+      username: 'mdsohel173',
+      url: 'https://www.hackerrank.com/profile/mdsohel173',
       icon: 'fab fa-hackerrank',
       color: 'from-green-500 to-green-700',
       bgColor: 'bg-green-600',
       stats: {
         rating: '5★',
-        problems: '320+',
+        problems: '350+',
         badges: 'Gold'
       }
     },
     {
       name: 'LeetCode',
-      username: 'rezwanul_haque',
-      url: 'https://leetcode.com/rezwanul_haque',
+      username: 'sohelf131',
+      url: 'https://leetcode.com/sohelf131',
       icon: 'fas fa-code',
       color: 'from-yellow-500 to-yellow-700',
       bgColor: 'bg-yellow-600',
       stats: {
-        rating: '1650',
-        problems: '280+'
+        rating: 'N/A',
+        problems: '50+'
       }
     }
   ]
 
-  // Stats for coding platforms
-  const codingStats = {
-    totalProblems: '1500+',
-    contests: '45+',
-    maxRating: '1650',
-    certifications: '8+'
-  }
 
   const openProfile = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer')
   }
 
-  const getPlatformIcon = (platform: string) => {
-    switch(platform) {
-      case 'GitHub': return <i className="fab fa-github text-3xl"></i>
-      case 'LinkedIn': return <i className="fab fa-linkedin text-3xl"></i>
-      case 'Codeforces': return <i className="fas fa-trophy text-3xl"></i>
-      case 'CodeChef': return <i className="fas fa-utensils text-3xl"></i>
-      case 'HackerRank': return <i className="fab fa-hackerrank text-3xl"></i>
-      case 'LeetCode': return <i className="fas fa-code text-3xl"></i>
-      default: return <i className="fas fa-code text-3xl"></i>
-    }
-  }
 
   return (
     <section id="coding-profiles" className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -190,7 +173,7 @@ const CodingProfiles = () => {
         </div>
 
         {/* Recent Achievements Badges */}
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <h3 className="text-center text-lg font-bold mb-4 flex items-center justify-center gap-2">
             <i className="fas fa-medal text-yellow-500"></i>
             Recent Achievements
@@ -211,7 +194,7 @@ const CodingProfiles = () => {
               </span>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

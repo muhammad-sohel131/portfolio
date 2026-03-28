@@ -70,7 +70,7 @@ const About = () => {
                 href="#contact"
                 className="px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
               >
-                Let's Connect
+                Let&apos;s Connect
               </a>
               <a
                 href="#"
