@@ -30,16 +30,13 @@ const Contact = () => {
   }
 
   const contactInfo = [
-    { icon: 'fa-envelope', label: 'Email', value: 'rezwanul.haque@green.edu.bd', link: 'mailto:rezwanul.haque@green.edu.bd' },
-    { icon: 'fa-phone', label: 'Phone', value: '+880 1XXX-XXXXXX', link: 'tel:+8801XXXXXXXXX' },
+    { icon: 'fa-envelope', label: 'Email', value: 'sohelf131@gmail.com', link: 'mailto:sohelf131@gmail.com' },
+    { icon: 'fa-phone', label: 'Phone', value: '+880 1302633568', link: 'tel:+8801302633568' },
     { icon: 'fa-map-marker-alt', label: 'Location', value: 'Dhaka, Bangladesh', link: null },
   ]
 
   const socialLinks = [
-    { icon: 'fab fa-github', link: 'https://github.com/' },
-    { icon: 'fab fa-linkedin', link: 'https://linkedin.com/' },
-    { icon: 'fab fa-codeforces', link: 'https://codeforces.com/' },
-    { icon: 'fab fa-twitter', link: 'https://twitter.com/' },
+    
   ]
 
   return (

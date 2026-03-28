@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="font-mono text-sm">
             <span className="text-blue-400">&lt;</span>
-            <span> Rezwanul Haque </span>
+            <span> Md Sohel </span>
             <span className="text-blue-400">/&gt;</span>
           </div>
           <div className="text-sm text-gray-400">

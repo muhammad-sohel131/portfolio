@@ -27,13 +27,12 @@ const Education = () => {
       degree: "Bachelor of Science in Computer Science & Engineering",
       institution: "Green University of Bangladesh",
       location: "Dhaka, Bangladesh",
-      period: "2021 - Present",
-      grade: "CGPA: 3.82/4.00",
+      period: "Jan, 2022 - Jan 2026",
+      grade: "CGPA: 3.50/4.00",
       achievements: [
         "Excellence Academic Award (Multiple semesters)",
         "Dean's List Award - 3 consecutive semesters",
-        "3rd Position - Intra University Programming Contest 2023",
-        "Best Project Award Nominee - Software Engineering Course"
+        "3rd Position - Intra University Programming Contest 2023"
       ],
       courses: [
         { name: "Data Structures & Algorithms", grade: "A" },
