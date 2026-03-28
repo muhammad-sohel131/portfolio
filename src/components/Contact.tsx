@@ -35,9 +35,6 @@ const Contact = () => {
     { icon: 'fa-map-marker-alt', label: 'Location', value: 'Dhaka, Bangladesh', link: null },
   ]
 
-  const socialLinks = [
-    
-  ]
 
   return (
     <section id="contact" className="py-20">
@@ -77,19 +74,6 @@ const Contact = () => {
                       )}
                     </div>
                   </div>
-                ))}
-              </div>
-              <div className="flex gap-4 mt-8 pt-4 border-t border-gray-200">
-                {socialLinks.map((social, idx) => (
-                  <a
-                    key={idx}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300"
-                  >
-                    <i className={social.icon}></i>
-                  </a>
                 ))}
               </div>
             </div>
