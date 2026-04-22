@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 const About = () => {
   return (
     <section id="about" className="py-20 bg-gray-50/50">
@@ -66,18 +68,20 @@ const About = () => {
             </div>
 
             <div className="flex gap-4 pt-4">
-              <a
+              <Link
                 href="#contact"
                 className="px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
               >
                 Let&apos;s Connect
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://drive.google.com/file/d/1kzOKH9KZatCm9UKOvd6hb7_el0_F9kOZ/view?usp=sharing"
                 className="px-6 py-2 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Download Resume
-              </a>
+                Open Resume
+              </Link>
             </div>
           </div>
           {/* Terminal Animation */}
