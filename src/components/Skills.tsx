@@ -25,14 +25,14 @@ const Skills = () => {
   ]
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20" style={{ backgroundColor: 'var(--section-bg)' }}>
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Tech <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Stack</span>
           </h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+          <p className="mt-4 max-w-2xl mx-auto" style={{ color: 'var(--color-muted)' }}>
             Technologies and tools I work with to build scalable, modern applications.
           </p>
         </div>
@@ -41,19 +41,21 @@ const Skills = () => {
           {skillCategories.map((category, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+              className="rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--color-border)' }}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition">
                   <i className={`fas ${category.icon} text-white text-xl`}></i>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">{category.title}</h3>
+                <h3 className="text-xl font-bold" style={{ color: 'var(--color-foreground)' }}>{category.title}</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-mono hover:bg-blue-600 hover:text-white transition-all duration-200 cursor-default"
+                    className="px-3 py-1 rounded-full text-sm font-mono transition-all duration-200 cursor-default"
+                    style={{ backgroundColor: 'var(--surface-2)', color: 'var(--color-muted)' }}
                   >
                     {skill}
                   </span>

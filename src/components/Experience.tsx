@@ -63,12 +63,12 @@ const Experience = () => {
     return `px-4 py-2 rounded-full font-semibold transition-all duration-300 ${
       activeTab === tab
         ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md"
-        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+        : ""
     }`;
   };
 
   return (
-    <section id="experience" className="py-20 bg-gray-50/50">
+    <section id="experience" className="py-20" style={{ backgroundColor: 'var(--section-bg)' }}>
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -78,7 +78,7 @@ const Experience = () => {
             </span>
           </h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+          <p className="mt-4 max-w-2xl mx-auto" style={{ color: 'var(--color-muted)' }}>
             My professional experience, internships, and academic roles that
             shaped my career.
           </p>
@@ -118,7 +118,7 @@ const Experience = () => {
                 <div
                   className={`md:w-1/2 ${idx % 2 === 0 ? "md:pr-12" : "md:pl-12"}`}
                 >
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group">
+                  <div className="rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--color-border)' }}>
                     <div className={`h-1 bg-gradient-to-r ${exp.color}`}></div>
                     <div className="p-6">
                       <div className="flex items-start gap-4 mb-4">
@@ -130,13 +130,13 @@ const Experience = () => {
                           ></i>
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-xl font-bold text-gray-800">
+                          <h3 className="text-xl font-bold" style={{ color: 'var(--color-foreground)' }}>
                             {exp.title}
                           </h3>
-                          <p className="text-blue-600 font-semibold">
+                          <p className="font-semibold" style={{ color: 'var(--color-primary)' }}>
                             {exp.company}
                           </p>
-                          <div className="flex items-center gap-2 text-sm text-gray-500 mt-1">
+                          <div className="flex items-center gap-2 text-sm mt-1" style={{ color: 'var(--color-muted)' }}>
                             <i className="fas fa-map-marker-alt text-xs"></i>
                             <span>{exp.location}</span>
                             <span className="mx-1">•</span>
@@ -147,7 +147,7 @@ const Experience = () => {
                       </div>
 
                       <div className="mt-4">
-                        <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                        <h4 className="font-semibold mb-2 flex items-center gap-2" style={{ color: 'var(--color-foreground)' }}>
                           <i className="fas fa-tasks text-blue-500 text-sm"></i>
                           Responsibilities
                         </h4>
@@ -155,7 +155,8 @@ const Experience = () => {
                           {exp.description.map((item, i) => (
                             <li
                               key={i}
-                              className="flex items-start gap-2 text-sm text-gray-600"
+                              className="flex items-start gap-2 text-sm"
+                              style={{ color: 'var(--color-muted)' }}
                             >
                               <i className="fas fa-chevron-right text-blue-500 text-xs mt-1"></i>
                               <span>{item}</span>
@@ -166,16 +167,13 @@ const Experience = () => {
 
                       {exp.achievements && (
                         <div className="mt-4">
-                          <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+                          <h4 className="font-semibold mb-2 flex items-center gap-2" style={{ color: 'var(--color-foreground)' }}>
                             <i className="fas fa-star text-yellow-500 text-sm"></i>
                             Key Achievements
                           </h4>
                           <ul className="space-y-1">
                             {exp.achievements.map((achievement, i) => (
-                              <li
-                                key={i}
-                                className="flex items-start gap-2 text-sm text-gray-600"
-                              >
+                              <li key={i} className="flex items-start gap-2 text-sm" style={{ color: 'var(--color-muted)' }}>
                                 <i className="fas fa-trophy text-yellow-500 text-xs mt-1"></i>
                                 <span>{achievement}</span>
                               </li>
@@ -186,13 +184,14 @@ const Experience = () => {
 
                       <div className="mt-4 flex flex-wrap gap-2">
                         {exp.technologies.map((tech, i) => (
-                          <span
-                            key={i}
-                            className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs font-mono hover:bg-blue-600 hover:text-white transition-all duration-200"
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                            <span
+                              key={i}
+                              className="px-2 py-1 rounded text-xs font-mono transition-all duration-200"
+                              style={{ backgroundColor: 'var(--surface-2)', color: 'var(--color-muted)' }}
+                            >
+                              {tech}
+                            </span>
+                          ))}
                       </div>
                     </div>
                   </div>
@@ -206,14 +205,14 @@ const Experience = () => {
         </div>
 
         {/* Terminal Style Note */}
-        <div className="mt-8 bg-gray-900 rounded-xl p-4 font-mono text-sm max-w-2xl mx-auto">
-          <p className="text-green-400">$ experience --summary</p>
-          <p className="text-gray-300 mt-1">
+        <div className="mt-8 rounded-xl p-4 font-mono text-sm max-w-2xl mx-auto" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--color-border)' }}>
+          <p style={{ color: '#4ade80' }}>$ experience --summary</p>
+          <p style={{ color: 'var(--color-foreground)' }} className="mt-1">
             {" "}
             Currently seeking full-time software engineering opportunities
           </p>
-          <p className="text-gray-300"> Open to remote positions worldwide</p>
-          <p className="text-blue-400 mt-1">$ _</p>
+          <p style={{ color: 'var(--color-foreground)' }}> Open to remote positions worldwide</p>
+          <p style={{ color: 'var(--color-primary)' }} className="mt-1">$ _</p>
         </div>
       </div>
     </section>

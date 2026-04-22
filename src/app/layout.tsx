@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ThemeProvider } from 'next-themes'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -30,8 +31,10 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         />
       </head>
-      <body className="bg-gradient-to-br from-gray-50 via-white to-blue-50/30">
-        {children}
+      <body className="bg-background">
+        <ThemeProvider attribute="class" defaultTheme="light" storageKey="theme">
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

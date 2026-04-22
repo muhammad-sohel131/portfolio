@@ -69,7 +69,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20" style={{ backgroundColor: 'var(--color-background)' }}>
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -79,7 +79,7 @@ const Contact = () => {
             </span>
           </h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+          <p className="mt-4 max-w-2xl mx-auto" style={{ color: 'var(--color-muted)' }}>
             Have a project in mind? Let's collaborate and build something
             amazing together.
           </p>
@@ -88,7 +88,7 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="bg-white p-6 rounded-xl shadow-lg">
+            <div className="p-6 rounded-xl shadow-lg" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--color-border)' }}>
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
                 <i className="fas fa-comment-dots text-blue-600"></i>
                 Let's Talk
@@ -100,18 +100,19 @@ const Contact = () => {
                       <i className={`fas ${info.icon} text-blue-600`}></i>
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500 font-mono">
+                      <p className="text-xs font-mono" style={{ color: 'var(--color-muted)' }}>
                         {info.label}
                       </p>
                       {info.link ? (
                         <a
                           href={info.link}
-                          className="text-gray-700 hover:text-blue-600 transition"
+                          className="transition"
+                          style={{ color: 'var(--color-foreground)' }}
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-gray-700">{info.value}</p>
+                        <p style={{ color: 'var(--color-foreground)' }}>{info.value}</p>
                       )}
                     </div>
                   </div>
@@ -120,21 +121,21 @@ const Contact = () => {
             </div>
 
             {/* Terminal Quote */}
-            <div className="bg-gray-900 rounded-xl p-4 font-mono text-sm">
-              <p className="text-green-400">$ echo "message from dev"</p>
-              <p className="text-gray-300 mt-2">
+            <div className="rounded-xl p-4 font-mono text-sm" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--color-border)' }}>
+              <p style={{ color: '#4ade80' }}>$ echo "message from dev"</p>
+              <p style={{ color: 'var(--color-foreground)' }} className="mt-2">
                 "Open to remote opportunities and collaborative projects."
               </p>
-              <p className="text-green-400 mt-2">$ _</p>
+              <p style={{ color: '#4ade80' }} className="mt-2">$ _</p>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white p-6 rounded-xl shadow-lg">
+          <div className="p-6 rounded-xl shadow-lg" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--color-border)' }}>
             <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--color-foreground)' }}>
                   Name
                 </label>
                 <input
@@ -143,12 +144,13 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 rounded-lg focus:outline-none"
+                  style={{ backgroundColor: 'var(--color-background)', border: '1px solid var(--color-border)' }}
                   placeholder="Your name"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--color-foreground)' }}>
                   Email
                 </label>
                 <input
@@ -157,12 +159,13 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 rounded-lg focus:outline-none"
+                  style={{ backgroundColor: 'var(--color-background)', border: '1px solid var(--color-border)' }}
                   placeholder="your@email.com"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: 'var(--color-foreground)' }}>
                   Message
                 </label>
                 <textarea
@@ -171,7 +174,8 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 rounded-lg focus:outline-none"
+                  style={{ backgroundColor: 'var(--color-background)', border: '1px solid var(--color-border)' }}
                   placeholder="Your message..."
                 ></textarea>
               </div>
@@ -189,7 +193,7 @@ const Contact = () => {
                 )}
               </button>
               {submitted && (
-                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded-lg text-center animate-fadeIn">
+                <div className="px-4 py-2 rounded-lg text-center animate-fadeIn" style={{ backgroundColor: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)', color: 'var(--color-foreground)' }}>
                   <i className="fas fa-check-circle mr-2"></i>Message sent
                   successfully!
                 </div>

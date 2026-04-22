@@ -188,7 +188,7 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="projects" className="py-20" style={{ backgroundColor: 'var(--section-alt)' }}>
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         {/* Header */}
         <div className="text-center mb-12">
@@ -196,7 +196,7 @@ const Projects = () => {
             Featured <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Projects</span>
           </h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+          <p className="mt-4 max-w-2xl mx-auto" style={{ color: 'var(--color-muted)' }}>
             A collection of my professional work and personal passion projects.
             Each project represents my commitment to quality and innovation.
           </p>
@@ -209,8 +209,9 @@ const Projects = () => {
             className={`px-5 py-2 rounded-full font-semibold transition-all duration-300 ${
               selectedCategory === 'all'
                 ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md'
-                : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+                : ''
             }`}
+            style={selectedCategory === 'all' ? {} : { backgroundColor: 'var(--surface-2)', color: 'var(--color-foreground)' }}
           >
             <i className="fas fa-globe mr-2"></i>All Projects ({projects.length})
           </button>
@@ -219,8 +220,9 @@ const Projects = () => {
             className={`px-5 py-2 rounded-full font-semibold transition-all duration-300 ${
               selectedCategory === 'office'
                 ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md'
-                : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+                : ''
             }`}
+            style={selectedCategory === 'office' ? {} : { backgroundColor: 'var(--surface-2)', color: 'var(--color-foreground)' }}
           >
             <i className="fas fa-briefcase mr-2"></i>Office ({projects.filter(p => p.category === 'office').length})
           </button>
@@ -229,8 +231,9 @@ const Projects = () => {
             className={`px-5 py-2 rounded-full font-semibold transition-all duration-300 ${
               selectedCategory === 'personal'
                 ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md'
-                : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+                : ''
             }`}
+            style={selectedCategory === 'personal' ? {} : { backgroundColor: 'var(--surface-2)', color: 'var(--color-foreground)' }}
           >
             <i className="fas fa-user mr-2"></i>Personal ({projects.filter(p => p.category === 'personal').length})
           </button>
@@ -241,11 +244,12 @@ const Projects = () => {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+              className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
               onClick={() => setSelectedProject(project)}
+              style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--color-border)' }}
             >
               {/* Project Image */}
-              <div className="relative h-[280px] w-full overflow-hidden bg-gradient-to-r from-gray-200 to-gray-300">
+              <div className="relative h-[280px] w-full overflow-hidden" style={{ background: 'linear-gradient(90deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04))' }}>
                 {!imageErrors[project.id] ? (
                   <Image
                     src={project.image}
@@ -263,7 +267,7 @@ const Projects = () => {
                 
                 {/* Overlay Badges */}
                 <div className="absolute top-3 right-3 flex gap-2 z-10">
-                  <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getCategoryColor(project.category)}`}>
+                  <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getCategoryColor(project.category)}`} style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}>
                     <i className={`fas ${getCategoryIcon(project.category)} mr-1 text-xs`}></i>
                     {project.category === 'office' ? 'Office' : 'Personal'}
                   </span>
@@ -276,39 +280,40 @@ const Projects = () => {
               </div>
 
               <div className="p-5">
-                <h3 className="text-xl font-bold mb-2 text-gray-800 group-hover:text-blue-600 transition line-clamp-1">
+                <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition line-clamp-1" style={{ color: 'var(--color-foreground)' }}>
                   {project.title}
                 </h3>
-                <p className="text-gray-600 text-sm mb-3 leading-relaxed line-clamp-2">
+                <p className="text-sm mb-3 leading-relaxed line-clamp-2" style={{ color: 'var(--color-muted)' }}>
                   {project.description}
                 </p>
                 
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {project.techStack.slice(0, 3).map((tech, i) => (
-                    <span key={i} className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs font-mono">
+                    <span key={i} className="px-2 py-0.5 rounded text-xs font-mono" style={{ backgroundColor: 'rgba(0,0,0,0.03)', color: 'var(--color-muted)' }}>
                       {tech}
                     </span>
                   ))}
                   {project.techStack.length > 3 && (
-                    <span className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs">
+                    <span className="px-2 py-0.5 rounded text-xs" style={{ backgroundColor: 'var(--surface-2)', color: 'var(--color-muted)' }}>
                       +{project.techStack.length - 3}
                     </span>
                   )}
                 </div>
 
                 {/* My Role Badge */}
-                <div className="mb-4 px-2 py-1 bg-blue-50 rounded-lg inline-block">
-                  <p className="text-xs text-blue-700 font-mono">
+                <div className="mb-4 px-2 py-1 rounded-lg inline-block" style={{ backgroundColor: 'rgba(59,130,246,0.06)' }}>
+                  <p className="text-xs font-mono" style={{ color: 'var(--color-primary)' }}>
                     <i className="fas fa-user-tie mr-1"></i>
                     {project.role.length > 40 ? project.role.substring(0, 40) + '...' : project.role}
                   </p>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-2 pt-2 border-t border-gray-100">
+                <div className="flex gap-2 pt-2" style={{ borderTop: '1px solid var(--color-border)' }}>
                   <button 
-                    className="flex-1 py-1.5 text-blue-600 hover:text-blue-700 text-sm font-semibold flex items-center justify-center gap-1 rounded-lg hover:bg-blue-50 transition"
+                    className="flex-1 py-1.5 text-sm font-semibold flex items-center justify-center gap-1 rounded-lg hover:bg-blue-50 transition"
+                    style={{ color: 'var(--color-primary)' }}
                     onClick={(e) => {
                       e.stopPropagation()
                       setSelectedProject(project)
@@ -321,7 +326,8 @@ const Projects = () => {
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 py-1.5 text-green-600 hover:text-green-700 text-sm font-semibold flex items-center justify-center gap-1 rounded-lg hover:bg-green-50 transition"
+                    className="flex-1 py-1.5 text-sm font-semibold flex items-center justify-center gap-1 rounded-lg transition"
+                    style={{ color: 'var(--color-foreground)', backgroundColor: 'transparent' }}
                     onClick={(e) => e.stopPropagation()}
                   >
                     <i className="fas fa-external-link-alt"></i> Live
@@ -332,7 +338,8 @@ const Projects = () => {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 py-1.5 text-gray-600 hover:text-gray-800 text-sm font-semibold flex items-center justify-center gap-1 rounded-lg hover:bg-gray-100 transition"
+                      className="flex-1 py-1.5 text-sm font-semibold flex items-center justify-center gap-1 rounded-lg transition"
+                      style={{ color: 'var(--color-muted)', backgroundColor: 'transparent' }}
                       onClick={(e) => e.stopPropagation()}
                     >
                       <i className="fab fa-github"></i> Code
@@ -347,7 +354,7 @@ const Projects = () => {
         {/* Project Detail Modal */}
         {selectedProject && (
           <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto" onClick={() => setSelectedProject(null)}>
-            <div className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()} style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--color-border)' }}>
               {/* Modal Image Header */}
               <div className="relative h-56 w-full bg-blend-overlay bg-black/50">
                 {!imageErrors[selectedProject.id] ? (
@@ -386,10 +393,10 @@ const Projects = () => {
               </div>
 
               {/* Modal Content */}
-              <div className="p-6">
+              <div className="p-6" style={{ color: 'var(--color-foreground)' }}>
                 {/* Role & Team */}
-                <div className="mb-5 p-3 bg-blue-50 rounded-lg">
-                  <p className="text-sm text-blue-800">
+                <div className="mb-5 p-3 rounded-lg" style={{ backgroundColor: 'rgba(59,130,246,0.06)' }}>
+                  <p className="text-sm" style={{ color: 'var(--color-primary)' }}>
                     <i className="fas fa-user-tie mr-2"></i>
                     <span className="font-semibold">My Role:</span> {selectedProject.role}
                     {selectedProject.teamSize && ` | 👥 Team: ${selectedProject.teamSize} members`}
@@ -402,7 +409,7 @@ const Projects = () => {
                     <i className="fas fa-info-circle text-blue-600"></i>
                     Overview
                   </h3>
-                  <p className="text-gray-700 leading-relaxed text-sm">
+                  <p className="leading-relaxed text-sm" style={{ color: 'var(--color-foreground)' }}>
                     {selectedProject.longDescription || selectedProject.description}
                   </p>
                 </div>
@@ -415,9 +422,9 @@ const Projects = () => {
                   </h3>
                   <div className="grid md:grid-cols-2 gap-2">
                     {selectedProject.features.map((feature, i) => (
-                      <div key={i} className="flex items-start gap-2">
+                        <div key={i} className="flex items-start gap-2">
                         <i className="fas fa-check-circle text-green-500 mt-0.5 text-sm"></i>
-                        <span className="text-sm text-gray-700">{feature}</span>
+                        <span className="text-sm" style={{ color: 'var(--color-foreground)' }}>{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -431,20 +438,21 @@ const Projects = () => {
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.techStack.map((tech, i) => (
-                      <span key={i} className="px-2 py-1 bg-gray-100 rounded-lg text-xs font-mono">
-                        {tech}
-                      </span>
+                      <span key={i} className="px-2 py-1 rounded-lg text-xs font-mono" style={{ backgroundColor: 'rgba(0,0,0,0.03)', color: 'var(--color-muted)' }}>
+                          {tech}
+                        </span>
                     ))}
                   </div>
                 </div>
 
                 {/* Links Section */}
-                <div className="flex gap-3 mt-5 pt-3 border-t border-gray-100">
+                <div className="flex gap-3 mt-5 pt-3" style={{ borderTop: '1px solid var(--color-border)' }}>
                   <a
                     href={selectedProject.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 py-2 bg-green-600 text-white rounded-lg font-semibold text-center hover:bg-green-700 transition text-sm"
+                    className="flex-1 py-2 rounded-lg font-semibold text-center hover:opacity-90 transition text-sm"
+                    style={{ backgroundColor: 'var(--color-primary)', color: 'white' }}
                   >
                     <i className="fas fa-external-link-alt mr-2"></i>Visit Live Project
                   </a>
@@ -454,7 +462,8 @@ const Projects = () => {
                       href={selectedProject.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 py-2 bg-gray-800 text-white rounded-lg font-semibold text-center hover:bg-gray-900 transition text-sm"
+                      className="flex-1 py-2 rounded-lg font-semibold text-center hover:opacity-90 transition text-sm"
+                      style={{ backgroundColor: 'var(--color-muted)', color: 'white' }}
                     >
                       <i className="fab fa-github mr-2"></i>View Source Code
                     </a>
@@ -463,8 +472,8 @@ const Projects = () => {
 
                 {/* Private Note */}
                 {selectedProject.isPrivate && (
-                  <div className="mt-4 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-                    <p className="text-xs text-yellow-700">
+                  <div className="mt-4 p-3 rounded-lg" style={{ backgroundColor: 'rgba(250,204,21,0.06)', border: '1px solid rgba(250,204,21,0.16)' }}>
+                    <p className="text-xs" style={{ color: 'var(--color-primary)' }}>
                       <i className="fas fa-info-circle mr-1"></i>
                       This is a private project. Source code is confidential. Live demo is available above.
                     </p>

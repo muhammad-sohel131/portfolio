@@ -3,20 +3,43 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #3b82f6;
+  --secondary: #f3f4f6;
+  --accent: #1f2937;
+  --surface: #ffffff;
+  --surface-1: #ffffff;
+  --surface-2: #f8fafc;
+  --section-bg: #f8fafc; /* subtle off-white for alternating sections */
+  --section-alt: #ffffff; /* main section background */
+  --muted: #6b7280;
+  --border: #d1d5db;
+}
+
+.dark {
+  --background: #0b1220; /* deep navy for better depth */
+  --foreground: #e6eef8; /* soft off-white for readability */
+  --primary: #60a5fa;
+  --secondary: #0f1724; /* navbar / subtle surface */
+  --surface: #0b1320; /* card/panel background */
+  --surface-1: #0b1320;
+  --surface-2: #0f1724;
+  --accent: #dbeafe; /* light accent for contrast */
+  --section-bg: #071025; /* subtle dark blue for alternating sections */
+  --section-alt: #0b1220; /* main section dark background */
+  --muted: #9ca3af;
+  --border: #1f2937;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -45,3 +68,18 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out;
 }
+
+/* Dark-mode overrides for common utility classes to improve contrast */
+.dark .text-gray-700 { color: var(--color-foreground) !important; }
+.dark .text-gray-600 { color: var(--color-muted) !important; }
+.dark .text-gray-500 { color: var(--color-muted) !important; }
+.dark .text-gray-400 { color: var(--color-muted) !important; }
+.dark .text-gray-300 { color: var(--color-muted) !important; }
+.dark .text-gray-800 { color: var(--color-foreground) !important; }
+.dark .bg-white { background-color: var(--surface) !important; }
+.dark .bg-gray-50 { background-color: var(--surface) !important; }
+.dark .bg-gray-900 { background-color: var(--surface) !important; }
+.dark .bg-gray-800 { background-color: var(--surface) !important; }
+.dark .border-gray-100 { border-color: var(--color-border) !important; }
+.dark .border-gray-200 { border-color: var(--color-border) !important; }
+.dark .bg-gray-100 { background-color: rgba(255,255,255,0.03) !important; }
